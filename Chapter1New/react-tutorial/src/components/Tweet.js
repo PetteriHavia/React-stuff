@@ -13,7 +13,7 @@ const Tweet = (props) =>  {
             <h3>{props.message}</h3>
             <button>Like</button>
             <button onClick={deleteTweet}>Delete</button>
-            <h2>Testing From UUID</h2>
+            <h2>Testing Master</h2>
         </div>
     )
 }
