@@ -1,6 +1,6 @@
 import React from "react";
-import TweetList from './components/TweetList'
-import CreateTweet from './components/CreateTweet'
+import TweetList from './components/TweetList';
+import CreateTweet from './components/CreateTweet';
 import { useState } from "react";
 
 function App() {
@@ -13,6 +13,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1 className="title">Twitter Light</h1>
       <CreateTweet textInput={textInput} setTextInput={setTextInput} tweets={tweets} setTweets={setTweets}/>
       <TweetList name={name} tweets={tweets} setTweets={setTweets}/>
     </div>

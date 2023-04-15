@@ -1,0 +1,15 @@
+:root{
+
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: monospace;
+}
+
+.title{
+    color: blueviolet;
+}

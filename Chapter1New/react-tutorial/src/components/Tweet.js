@@ -1,4 +1,5 @@
 import React from 'react';
+//import '../styles/Tweet.scss';
 
 const Tweet = (props) =>  {
     
@@ -8,8 +9,8 @@ const Tweet = (props) =>  {
     }
 
     return(
-        <div>
-            <h2>Name:{props.name}</h2>
+        <div className="tweet">
+            <h2 className="title">Name:{props.name}</h2>
             <h3>{props.message}</h3>
             <button>Like</button>
             <button onClick={deleteTweet}>Delete</button>
