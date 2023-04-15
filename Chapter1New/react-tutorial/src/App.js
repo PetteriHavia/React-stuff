@@ -4,12 +4,12 @@ import CreateTweet from './components/CreateTweet'
 import { useState } from "react";
 
 function App() {
-  // Normal javaScript here like functions and const
+  //Normal javaScript here like functions and const
 
-  const [name, setName] = useState("PH");
   //State
   const [textInput, setTextInput] = useState("");
   const [tweets, setTweets] = useState([]);
+  const [name, setName] = useState("PH");
 
   return (
     <div className="App">
