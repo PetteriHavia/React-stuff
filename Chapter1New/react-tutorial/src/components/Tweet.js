@@ -1,5 +1,7 @@
 import React from 'react';
-//import '../styles/Tweet.scss';
+import styled from 'styled-components';
+import '../styles/Tweet.scss';
+
 
 const Tweet = (props) =>  {
     
@@ -18,4 +20,17 @@ const Tweet = (props) =>  {
     )
 }
 
+/*
+const Tweetbox = styled.div`
+    border: 1px solid red;
+`;
+*/
+
+
 export default Tweet;
+
+
+
+<div>
+    
+</div>
