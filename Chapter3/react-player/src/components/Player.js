@@ -50,6 +50,7 @@ const Player = ({currentSong, isPlaying, setIsPlaying, songs, setCurrentSong}) =
         setSongInfo({...songInfo, currentTime: e.target.value});
     }
 
+    //Skip forward/back control
     const skipTrackHandler = (direction) => {
         let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
         if(direction === 'skip-forward') {
@@ -62,7 +63,13 @@ const Player = ({currentSong, isPlaying, setIsPlaying, songs, setCurrentSong}) =
             }
         setCurrentSong(songs[(currentIndex - 1)  % songs.length]); 
         }
-    }   
+    }
+    
+    //Auto play song
+    const songEndHandler = () => {
+        let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
+        setCurrentSong(songs[(currentIndex + 1) % songs.length]);
+    }
  
     //State
     const [songInfo, setSongInfo] = useState({currentTime: 0, duration: 0, animation: 0}); 
@@ -87,7 +94,7 @@ const Player = ({currentSong, isPlaying, setIsPlaying, songs, setCurrentSong}) =
                 <FontAwesomeIcon onClick={playSongHandler} className="play" size="2x" icon={isPlaying ? faPause : faPlay}/>
                 <FontAwesomeIcon onClick={() => skipTrackHandler('skip-forward')} className="skip-forward" size="2x" icon={faAngleRight}/>
             </div>
-            <audio onLoadedData={autoPlayHandler} onTimeUpdate={timeUpdateHandler} onLoadedMetadata={timeUpdateHandler} ref={audioRef} src={currentSong.audio}></audio>
+            <audio onEnded={songEndHandler} onLoadedData={autoPlayHandler} onTimeUpdate={timeUpdateHandler} onLoadedMetadata={timeUpdateHandler} ref={audioRef} src={currentSong.audio}></audio>
         </div>
     );
 } 
