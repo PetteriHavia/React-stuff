@@ -4,7 +4,8 @@ import './styles/app.scss';
 //Components
 import Player from './components/Player';
 import Song from './components/Song';
-import Library from './components/Library'
+import Library from './components/Library';
+import Nav from './components/Navigation';
 //Utils
 import data from './util';
 
@@ -12,24 +13,25 @@ import data from './util';
 function App() {
 
   //Functions
-
-  //Get random song at the start
+  //Get random song when app starts/refresh
   const getRandomSong = (array) => {
-    const randomObject = array[Math.floor(Math.random() * array.length)];
-    return randomObject;
+    const randomSong = array[Math.floor(Math.random() * array.length)];
+    return randomSong;
   }
 
-  //State
+  //States
   const [songs, setSongs] = useState(data());
   const [currentSong , setCurrentSong] = useState(getRandomSong(songs));
   const [isPlaying, setIsPlaying] = useState(false);
+  const [libraryStatus, setLibraryStatus] = useState(false);
 
   
   return (
     <div className="App">
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <Song currentSong={currentSong}/>
-      <Player currentSong={currentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying}/>
-      <Library songs={songs} setCurrentSong={setCurrentSong} />
+      <Player songs={songs} currentSong={currentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying} setCurrentSong={setCurrentSong} />
+      <Library songs={songs} currentSong={currentSong} setCurrentSong={setCurrentSong} libraryStatus={libraryStatus}/>
     </div>
   );
 }
