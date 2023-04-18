@@ -24,14 +24,15 @@ function App() {
   const [currentSong , setCurrentSong] = useState(getRandomSong(songs));
   const [isPlaying, setIsPlaying] = useState(false);
   const [libraryStatus, setLibraryStatus] = useState(false);
+  const [search, setSearch] = useState('');
 
   
   return (
-    <div className="App">
+    <div className={`App ${libraryStatus ? 'library-active' : ''}`}>
       <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <Song currentSong={currentSong}/>
       <Player songs={songs} currentSong={currentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying} setCurrentSong={setCurrentSong} />
-      <Library songs={songs} currentSong={currentSong} setCurrentSong={setCurrentSong} libraryStatus={libraryStatus}/>
+      <Library search={search} setSearch={setSearch}songs={songs} setSongs={setSongs} currentSong={currentSong} setCurrentSong={setCurrentSong} libraryStatus={libraryStatus}/>
     </div>
   );
 }
