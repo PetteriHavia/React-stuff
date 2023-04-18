@@ -1,33 +1,39 @@
 import React from "react";
 //Images
 import home1 from "../img/home1.png";
+//Styled
+import styled from 'styled-components';
+import { Container, Description, Hide, Image } from "../style/Styles";
 
 const About = () => {
   return (
-    <div className="description">
-      <div className="title">
-        <div className="hide">
-          <h2>We ork to make</h2>
+    <Container>
+      <Description>
+        <div className="title">
+          <Hide>
+            <h2>We work to make</h2>
+          </Hide>
+          <Hide>
+            <h2>
+              your <span>Dreams</span> come{" "}
+            </h2>
+          </Hide>
+          <Hide>
+            <h2>True</h2>
+          </Hide>
         </div>
-        <div className="hide">
-          <h2>
-            your <span>Dreams</span> yome{" "}
-          </h2>
-        </div>
-        <div className="hide">
-          <h2>True</h2>
-        </div>
-      </div>
-      <p>
-        Contact us and we will take your ideas and create something unique for
-        you.
-      </p>
-      <button>Contact</button>
-      <div className="img">
+        <p>
+          Contact us and we will take your ideas and create something unique for
+          you.
+        </p>
+        <button>Contact</button>
+      </Description>
+      <Image>
         <img src={home1} alt="Guy with camera" />
-      </div>
-    </div>
+      </Image>
+    </Container>
   );
 };
+
 
 export default About;
