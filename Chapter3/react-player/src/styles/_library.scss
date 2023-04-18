@@ -9,10 +9,26 @@
     transform: translateX(-100%);
     transition: all 0.5s ease;
     opacity: 0;
+    background-color: white;
 
     h2{
         padding: 2rem;
     }
+}
+
+.library-search{
+    padding: 1rem 2rem;
+
+    input{
+        padding: .3rem;
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid rgb(189, 189, 189);
+    }
+}
+
+textarea:focus, input:focus{
+    outline: none;
 }
 
 .library-song{
@@ -20,6 +36,7 @@
     align-items: center;
     padding: 1rem 2rem 1rem 2rem;
     cursor:pointer;
+    transition: background 0.5s ease;
 
     img{
         width:30%;
@@ -68,4 +85,10 @@
 .active-library{
     transform: translateX(0%);
     opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .library {
+       width: 100%;
+    }
 }
