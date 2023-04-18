@@ -65,7 +65,7 @@ const Player = ({currentSong, isPlaying, setIsPlaying, songs, setCurrentSong}) =
         }
     }
     
-    //Auto play song
+    //Auto play song after end
     const songEndHandler = () => {
         let currentIndex = songs.findIndex((song) => song.id === currentSong.id);
         setCurrentSong(songs[(currentIndex + 1) % songs.length]);
