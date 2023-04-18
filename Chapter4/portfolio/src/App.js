@@ -1,10 +1,12 @@
 import './style/App.scss';
+//Import Pages
+import AboutUs from './pages/AboutUs';
 
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <AboutUs />
     </div>
   );
 }
