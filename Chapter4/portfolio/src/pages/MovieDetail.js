@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import { MovieState } from "../Movies";
-//import Award from "../components/Award";
+//Animations
+import { motion } from 'framer-motion';
+import { pageAnimation } from '../animation';
 
 const MovieDetails = () => {
   const url = useLocation();
@@ -19,7 +21,7 @@ const MovieDetails = () => {
   return (
     <>
       {movie && (
-        <Details>
+        <Details variants={pageAnimation} initial='hidden' animate='show' exit='exit'>
           <HeadLine>
             <h2>{movie.title}</h2>
             <img src={movie.mainImg} alt="Movie cover" />
@@ -49,7 +51,7 @@ const Award = ({ award }) => {
   )
 }
 
-const Details = styled.div`
+const Details = styled(motion.div)`
   color: white;
 `;
 
