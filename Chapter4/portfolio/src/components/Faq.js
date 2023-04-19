@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import { Container } from "../style/Styles";
+import Toggle from "./Toggle";
+import {motion, LayoutGroup} from 'framer-motion';
 
 const Faq = () => {
   return (
@@ -8,8 +10,8 @@ const Faq = () => {
       <h2>
         Any Questions <span>FQA</span>
       </h2>
-      <div className="questions">
-        <h4>How Do I Start</h4>
+      <LayoutGroup>
+      <Toggle title='How Do I Start'>
         <div className="answer">
           <p>Lorem Ipsum dolor sit amet</p>
           <p>
@@ -17,10 +19,8 @@ const Faq = () => {
             saepe qui.
           </p>
         </div>
-        <div className="faq-line"></div>
-      </div>
-      <div className="questions">
-        <h4>Daily Schedule</h4>
+      </Toggle>
+      <Toggle title='Daily Schedule'>
         <div className="answer">
           <p>Lorem Ipsum dolor sit amet</p>
           <p>
@@ -28,10 +28,8 @@ const Faq = () => {
             saepe qui.
           </p>
         </div>
-        <div className="faq-line"></div>
-      </div>
-      <div className="questions">
-        <h4>Payment methods</h4>
+      </Toggle>
+      <Toggle title='Payment methods'>
         <div className="answer">
           <p>Lorem Ipsum dolor sit amet</p>
           <p>
@@ -39,10 +37,8 @@ const Faq = () => {
             saepe qui.
           </p>
         </div>
-        <div className="faq-line"></div>
-      </div>
-      <div className="questions">
-        <h4>What Products do you offfer</h4>
+      </Toggle>
+      <Toggle title='What Products do you offfer'>
         <div className="answer">
           <p>Lorem Ipsum dolor sit amet</p>
           <p>
@@ -50,8 +46,8 @@ const Faq = () => {
             saepe qui.
           </p>
         </div>
-        <div className="faq-line"></div>
-      </div>
+      </Toggle>
+      </LayoutGroup>
     </FaqSection>
   );
 };
