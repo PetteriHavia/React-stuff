@@ -2,7 +2,7 @@ import React from "react";
 //Images
 import home1 from "../img/home1.png";
 //Styled
-import styled from 'styled-components';
+//import styled from 'styled-components';
 import { Container, Description, Hide, Image } from "../style/Styles";
 
 const About = () => {
@@ -15,7 +15,7 @@ const About = () => {
           </Hide>
           <Hide>
             <h2>
-              your <span>Dreams</span> come{" "}
+              your <span>Dreams</span> come
             </h2>
           </Hide>
           <Hide>
@@ -34,6 +34,5 @@ const About = () => {
     </Container>
   );
 };
-
 
 export default About;

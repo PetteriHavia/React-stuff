@@ -6,9 +6,8 @@ import money from "../img/money.svg";
 import teamwork from "../img/teamwork.svg";
 import home2 from "../img/home2.png";
 //Styled
-import styled from 'styled-components';
+import styled from "styled-components";
 import { Container, Description, Hide, Image } from "../style/Styles";
-
 
 const Services = () => {
   return (
@@ -55,44 +54,42 @@ const Services = () => {
   );
 };
 
-
 const ServicesSection = styled(Container)`
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    h2{
-        padding-bottom: 5rem;
-    }
-    p{
-        width: 70%;
-        padding: 2rem 0rem 4rem 0rem;
-    }
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  h2 {
+    padding-bottom: 5rem;
+  }
+  p {
+    width: 70%;
+    padding: 2rem 0rem 4rem 0rem;
+  }
 `;
 
 const SectionDesc = styled(Description)`
-    padding-right: 0rem;
-    padding-left: 5rem;
+  padding-right: 0rem;
+  padding-left: 5rem;
 `;
 
 const Cards = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 const Card = styled.div`
-    flex-basis: 20rem;
-    .icon{
-        display: flex;
-        align-items: center;
+  flex-basis: 20rem;
+  .icon {
+    display: flex;
+    align-items: center;
 
-        h3{
-            margin-left: 1rem;
-            background: white;
-            color: black;
-            padding: 1rem;
-            border-radius: 8px;
-        }
+    h3 {
+      margin-left: 1rem;
+      background: white;
+      color: black;
+      padding: 1rem;
+      border-radius: 8px;
     }
-`
-
+  }
+`;
 
 export default Services;
