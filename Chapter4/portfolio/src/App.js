@@ -5,20 +5,26 @@ import AboutUs from "./pages/AboutUs";
 import Navigation from "./components/Navigation";
 import ContactUs from "./pages/ContactUs";
 import OurWork from "./pages/OurWork";
-import { Route, Routes, useLocation } from "react-router-dom";
+//Router
+import { Route, Routes, useLocation} from "react-router-dom";
 import MovieDetails from "./pages/MovieDetail";
+//Animation
+import { AnimatePresence } from "framer-motion";
 
 function App() {
+  const location = useLocation();
   return (
     <div className="App">
       <GlobalStyle />
       <Navigation />
-      <Routes>
-        <Route path="/" exact element={<AboutUs />} />
-        <Route path="work" exact element={<OurWork />} />
-        <Route path="contact" element={<ContactUs />} />
-        <Route path="work/:id" element={<MovieDetails />} />
-      </Routes>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" exact element={<AboutUs />} />
+          <Route path="work" exact element={<OurWork />} />
+          <Route path="contact" element={<ContactUs />} />
+          <Route path="work/:id" element={<MovieDetails />} />
+        </Routes>
+      </AnimatePresence>
     </div>
   );
 }
