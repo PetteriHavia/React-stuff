@@ -1,36 +1,39 @@
 import React from "react";
 //Images
 import home1 from "../img/home1.png";
-//Styled
-//import styled from 'styled-components';
 import { Container, Description, Hide, Image } from "../style/Styles";
+//Framer Motion
+import {motion} from 'framer-motion';
+import { titleAnim, fade, photoAnim } from "../animation";
+import Wawe from "./Wawe";
 
 const About = () => {
+
+
   return (
     <Container>
       <Description>
-        <div className="title">
+        <motion.div>
           <Hide>
-            <h2>We work to make</h2>
+            <motion.h2 variants={titleAnim}>We work to make</motion.h2>
           </Hide>
           <Hide>
-            <h2>
-              your <span>Dreams</span> come
-            </h2>
+            <motion.h2 variants={titleAnim}> your <span>Dreams</span> come</motion.h2>
           </Hide>
           <Hide>
-            <h2>True</h2>
+            <motion.h2 variants={titleAnim}>True</motion.h2>
           </Hide>
-        </div>
-        <p>
+        </motion.div>
+        <motion.p variants={fade}>
           Contact us and we will take your ideas and create something unique for
           you.
-        </p>
-        <button>Contact</button>
+        </motion.p>
+        <motion.button variants={fade}>Contact</motion.button>
       </Description>
       <Image>
-        <img src={home1} alt="Guy with camera" />
+        <motion.img variants={photoAnim} /*initial="hidden" animate="show"*/ src={home1} alt="Guy with camera" />
       </Image>
+      <Wawe />
     </Container>
   );
 };
