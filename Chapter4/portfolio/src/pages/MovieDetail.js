@@ -80,6 +80,11 @@ const HeadLine = styled.div`
     margin: 2rem 10rem;
     align-items: center;
     justify-content: space-around;
+
+    @media (max-width:1300px) {
+      flex-direction: column;
+      margin: 2rem 2rem;
+  }
   `;
 
   const AwardStyle = styled.div`
