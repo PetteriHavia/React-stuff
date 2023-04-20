@@ -1,12 +1,15 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 import { Container } from "../style/Styles";
-import Toggle from "./Toggle";
+import Toggle from "./ToggleOn";
 import {motion, LayoutGroup} from 'framer-motion';
+import { UseScroll } from "./UseScroll";
+import { fade } from "../animation";
 
 const Faq = () => {
+  const [element, controls] = UseScroll();
   return (
-    <FaqSection>
+    <FaqSection variants={fade} ref={element} animate={controls} initial="hidden">
       <h2>
         Any Questions <span>FQA</span>
       </h2>

@@ -2,7 +2,6 @@ import {createGlobalStyle} from 'styled-components';
 
 
 const GlobalStyle = createGlobalStyle`
-
 *{
     margin: 0;
     padding: 0;
@@ -12,6 +11,12 @@ const GlobalStyle = createGlobalStyle`
 body{
     background-color: #1b1b1b;
     font-family: 'Inter', sans-serif;
+}
+
+html {
+    @media (max-width: 1700px) {
+        font-size: 70%;
+    }
 }
 
 button{
