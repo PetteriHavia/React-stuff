@@ -15,7 +15,7 @@ const About = () => {
       <Description>
         <motion.div>
           <Hide>
-            <motion.h2 variants={titleAnim}>We work to make</motion.h2>
+            <motion.h2 variants={titleAnim}>We work to make your <span>Dreams</span> come True</motion.h2>
           </Hide>
           <Hide>
             <motion.h2 variants={titleAnim}> your <span>Dreams</span> come</motion.h2>

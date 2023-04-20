@@ -8,14 +8,17 @@ import home2 from "../img/home2.png";
 //Styled
 import styled from "styled-components";
 import { Container, Description, Hide, Image } from "../style/Styles";
+import { UseScroll } from "./UseScroll";
+import {fade} from '../animation';
 
 const Services = () => {
+  const [element, controls] = UseScroll();
   return (
-    <ServicesSection>
+    <ServicesSection variants={fade} animate={controls} initial="hidden" ref={element}>
       <SectionDesc>
-        <h2>
-          High<span>Quality</span>Services
-        </h2>
+        <div>
+         <h2>High<span>Quality</span>Services</h2>
+        </div>
         <Cards>
           <Card>
             <div className="icon">
@@ -64,16 +67,32 @@ const ServicesSection = styled(Container)`
     width: 70%;
     padding: 2rem 0rem 4rem 0rem;
   }
+
+  @media (max-width: 600px) {
+    h2{
+      font-size: 2.5rem;
+    }
+
+    p{
+        width: 100%;
+      }
+  }
 `;
 
 const SectionDesc = styled(Description)`
   padding-right: 0rem;
   padding-left: 5rem;
+  @media (max-width: 1300px) {
+      padding: 0rem;
+    }
 `;
 
 const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;
+  @media (max-width: 1300px) {
+      justify-content: center;
+    }
 `;
 
 const Card = styled.div`
@@ -89,6 +108,10 @@ const Card = styled.div`
       padding: 1rem;
       border-radius: 8px;
     }
+
+    @media (max-width: 1300px) {
+        justify-content: center;
+      }
   }
 `;
 
