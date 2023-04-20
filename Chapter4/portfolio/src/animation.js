@@ -25,7 +25,7 @@ export const pageAnimation = {
 
 export const titleAnim = {
   hidden: {
-    y: 200,
+  y: 300,
   },
   show: {
     y: 0,
@@ -83,4 +83,21 @@ export const SliderContainer = {
     opacity: 1,
     transition: {staggerChildren: 0.10, ease: 'easeOut'}
   }
+}
+
+export const ScrollReveal = {
+  hidden: {
+    opacity: 0,
+    scale: 1.2,
+    transition: {
+      duration: 0.5,
+    }
+  },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
 }
