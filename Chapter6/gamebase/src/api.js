@@ -9,7 +9,7 @@ const getCurrentMonth = () => {
     if(month < 10) {
         return `0${month}`;
     } else {
-        month;
+        return month;
     } 
 }
 
@@ -33,5 +33,7 @@ const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`;
 
 //Popular games
 const popular_games = `games?key=${process.env.REACT_APP_RAWG_API}&dates=${lastYear},${currentDate}&ordering=-rating&page_size=10`;
+const upcoming_games = `games?key=${process.env.REACT_APP_RAWG_API}&dates=${currentDate},${nextYear}&ordering=-added&page_size=10`;
 
-export const popularGamesURL = () => `${base_url}${popular_games}`;
+ const popularGamesURL = () => `${base_url}${popular_games}`;
+ const upcomingGamesURL = () => `${base_url}${upcoming_games}`;
