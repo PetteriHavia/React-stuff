@@ -1,4 +1,3 @@
-require("dotenv").config();
 
 //Base URL
 const base_url = `https://api.rawg.io/api/`;
@@ -31,9 +30,15 @@ const lastYear = `${currentYear - 1}-${currentMonth}-${currentDay}`;
 const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`;
 
 
-//Popular games
+//Games popular/upcoming/new
 const popular_games = `games?key=${process.env.REACT_APP_RAWG_API}&dates=${lastYear},${currentDate}&ordering=-rating&page_size=10`;
 const upcoming_games = `games?key=${process.env.REACT_APP_RAWG_API}&dates=${currentDate},${nextYear}&ordering=-added&page_size=10`;
+const newGames = `games?key=${process.env.REACT_APP_RAWG_API}&dates=${lastYear},${currentDate}&ordering=-added&page_size=10`;
 
- const popularGamesURL = () => `${base_url}${popular_games}`;
- const upcomingGamesURL = () => `${base_url}${upcoming_games}`;
+export const popularGamesURL = () => `${base_url}${popular_games}`;
+export const upcomingGamesURL = () => `${base_url}${upcoming_games}`;
+export const newGamesURL = () => `${base_url}${newGames}`;
+//Game details
+export const gameDetailsURL = (game_id) => `${base_url}games/${game_id}?key=16dfeb602d2146999bf84610986477d0`
+//Game Screenshots
+export const gameScreenshotURL = (game_id) => `${base_url}games/${game_id}/screenshots?key=16dfeb602d2146999bf84610986477d0`
