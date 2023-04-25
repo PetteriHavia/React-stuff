@@ -5,20 +5,26 @@ import {motion} from 'framer-motion';
 //Redux
 import { useDispatch } from "react-redux";
 import {loadDetail} from '../actions/detailAction';
+//Router
+import { Link } from "react-router-dom";
+import {smallImage} from '../utils'
 
 const Game = ({game}) => {
-
+    const stringPathId = game.id.toString(); //Convert pathid to string type to match id for framer motion AnimatePresence
     //Load Details
     const dispatch = useDispatch();
     const loadDetailHandler = () => {
+        document.body.style.overflow = 'hidden';
         dispatch(loadDetail(game.id));
     }
 
     return(
-        <StyledGame onClick={loadDetailHandler}>
-            <h3>{game.name}</h3>
-            <h3>{game.released}</h3>
-            <img src={game.background_image} alt={game.name} />
+        <StyledGame layoutId={stringPathId} onClick={loadDetailHandler}>
+            <Link to={`/game/${game.id}`}>
+                <motion.h3 layoutId={`title ${game.id}`}>{game.name}</motion.h3>
+                <h3>{game.released}</h3>
+                <motion.img layoutId={`ìmage ${stringPathId}`} src={smallImage(game.background_image, 640)} alt={game.name} />
+            </Link>
         </StyledGame>
     )
 }
@@ -28,6 +34,8 @@ const StyledGame = styled(motion.div)`
     box-shadow: 0px 5px 30px rgba(0,0,0,0.2);
     text-align: center;
     border-radius: 1rem;
+    cursor: pointer;
+    overflow: hidden;
     img{
         width: 100%;
         height: 30vh;
