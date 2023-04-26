@@ -97,7 +97,7 @@ const GameDetail = ({ pathId }) => {
               </Info>
             </Stats>
             <Media>
-              <img
+              <motion.img
                 layoutId={`ìmage ${game.id}`}
                 src={smallImage(game.background_image, 1280)}
                 alt="Game Background"
