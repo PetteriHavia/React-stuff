@@ -8,6 +8,7 @@ import {loadDetail} from '../actions/detailAction';
 //Router
 import { Link } from "react-router-dom";
 import {smallImage} from '../utils'
+import { popUp } from "../animations";
 
 const Game = ({game}) => {
     const stringPathId = game.id.toString(); //Convert pathid to string type to match id for framer motion AnimatePresence
@@ -19,10 +20,12 @@ const Game = ({game}) => {
     }
 
     return(
-        <StyledGame layoutId={stringPathId} onClick={loadDetailHandler}>
+        <StyledGame variants={popUp} initial='hidden' animate='show' layoutId={stringPathId} onClick={loadDetailHandler}>
             <Link to={`/game/${game.id}`}>
-                <motion.h3 layoutId={`title ${game.id}`}>{game.name}</motion.h3>
-                <h3>{game.released}</h3>
+                <div class="name-container">
+                    <motion.h3 layoutId={`title ${game.id}`}>{game.name}</motion.h3>
+                    <h3>{game.released}</h3>
+                </div>
                 <motion.img layoutId={`ìmage ${stringPathId}`} src={smallImage(game.background_image, 640)} alt={game.name} />
             </Link>
         </StyledGame>
@@ -40,6 +43,11 @@ const StyledGame = styled(motion.div)`
         width: 100%;
         height: 30vh;
         object-fit: cover;
+    }
+
+    .name-container{
+        max-height: 100px;
+       height: 100%;
     }
 `;
 
