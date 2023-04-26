@@ -5,6 +5,7 @@ import logo from "../img/logo.svg";
 //Redux and Routes
 import { fetchSearch } from '../actions/gamesAction'
 import { useDispatch } from "react-redux";
+import {fadeIn} from '../animations';
 
 
 const Navigation = () => {
@@ -19,11 +20,18 @@ const Navigation = () => {
     const submitSearch = (e) => {
         e.preventDefault();
         dispatch(fetchSearch(textInput));
+        setTextInput("");
+    }
+
+    const clearSearch = () => {
+      dispatch({
+        type: "CLEAR_SEARCH",
+      });
     }
  
   return (
-    <StyledNav>
-      <Logo>
+    <StyledNav variants={fadeIn} initial='hidden' animate='show'>
+      <Logo onClick={clearSearch}>
         <img src={logo} alt="logo" />
         <h1>Arcade</h1>
       </Logo>
@@ -54,6 +62,18 @@ const StyledNav = styled(motion.div)`
     cursor: pointer;
     background: #ff7676;
     color: white;
+  }
+
+
+  @media (max-width: 1200px){
+    input{
+      max-width: 400px;
+      width: 100%;
+    }
+
+    button{
+      margin-top: 1rem;
+    }
   }
 `;
 
